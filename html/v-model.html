@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-model</title>
+  <style>
+    input{
+      border: 1px solid #cccccc;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="message">
+    <div v-text="message"></div>
+  </div>
+  <script src="../js/vue.js"></script>
+</body>
+  <script>
+    const vm = new Vue({
+      el:"#app",
+      data:{
+        message:"hello vue!"
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-if</title>
+</head>
+<body>
+  <div id="app">
+    <div v-if="show">你能看见我</div>
+    <div v-if="hide">你看不见我</div>
+  </div>
+  <script src="../js/vue.js"></script>
+</body>
+  <script>
+    var app = new Vue({
+      el:"#app",
+      data:{
+        show:true,
+        hide:false
+      }
+    })
+  </script>
+</html>
