@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计算属性 computed</title>
+  <style>
+    input{
+      padding: 5px;
+      border: 1px solid #cccccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div style="color:red">【重要】computed setter 有些不确定使用场景</div>
+    <div></div><br>
+    <div>计算属性相比function优势：计算属性是基于它们的响应式依赖进行缓存的，不用每次执行函数</div>
+    
+    <div>.......................</div>
+    <div>{{reverseMessage}}</div>
+
+    <div>姓名：{{fullName}}</div>
+    <input type="text" v-model="fullName">
+    <input type="text" v-model="firstName">
+    <input type="text" v-model="lastName">
+  </div>
+  <script src="../js/vue.js"></script>
+</body>
+
+  <script>
+    
+    var vm = new Vue({
+      el:"#app",
+      data:{
+        message:"hello Vue!",
+        firstName: '',
+        lastName: ''
+      },
+      computed:{
+        reverseMessage(){
+          return this.message.split('').reverse().join('')
+        },
+        fullName:{
+           get:function(){
+             console.log("getter")
+             return this.firstName +' '+ this.lastName;
+           },
+           set(newValue){
+            console.log('setter')
+            var names = newValue.split(' ')
+            this.firstName = names[0]
+            this.lastName = names[names.length - 1]
+          }
+        }
+      }
+
+    });
+    vm.fullName="zhao xiao meng"
+  </script>
+
+</html>

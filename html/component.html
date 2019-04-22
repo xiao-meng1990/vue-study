@@ -4,32 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-model</title>
-  <style>
-    input{
-      border: 1px solid #cccccc;
-      padding: 5px;
-      border-radius: 5px;
-    }
-  </style>
+  <title>组件基础</title>
 </head>
 <body>
   <div id="app">
-    <input type="text" v-model="message">
-    <div v-text="message"></div>
+    <counter-button></counter-button>
   </div>
   <script src="../js/vue.js"></script>
 </body>
   <script>
-    var obj = {
-      a:1
-    }
+    //全局注册
+    Vue.component("counter-button",{
+      data(){
+        return {
+          count:0
+        }
+      },
+      template:"<button v-on:click='count++'>你点击了我 {{count}} 下</button>"
+    })
     var vm = new Vue({
       el:"#app",
-      data:{
-        message:"hello vue!",
-        obj:obj
-      }
-    });
+    })
   </script>
 </html>

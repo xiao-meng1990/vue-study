@@ -9,7 +9,9 @@
 <body>
   <div id="app">
     <div>{{message}}</div>
-    <button v-on:click="reverseMessage">逆转消息</button>
+    <button v-on:click="reverseMessage">逆转消息</button><br>
+    <button v-on:click="num+=1">add 1</button>
+    <div>我点击了 {{num}} 下</div>
   </div>
   <script src="../js/vue.js"></script>
 </body>
@@ -17,7 +19,8 @@
     var vm = new Vue({
       el:"#app",
       data:{
-        message:"hello vue!"
+        message:"hello vue!",
+        num:0
       },
       methods:{
         reverseMessage(){
